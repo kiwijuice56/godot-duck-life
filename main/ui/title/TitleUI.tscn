@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://xnj1oqgg6pjw"]
+
+[ext_resource type="Script" path="res://main/ui/title/title.gd" id="1_svoo4"]
+
+[node name="Title" type="Control" node_paths=PackedStringArray("start_button", "restart_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svoo4")
+start_button = NodePath("VBoxContainer/Start")
+restart_button = NodePath("VBoxContainer/Restart")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.356863, 0.517647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -48.0
+offset_right = 57.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+offset_right = 114.0
+offset_bottom = 26.0
+text = "Duck Life Light"
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+offset_top = 30.0
+offset_right = 114.0
+offset_bottom = 61.0
+focus_mode = 0
+text = "Continue"
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+offset_top = 65.0
+offset_right = 114.0
+offset_bottom = 96.0
+focus_mode = 0
+text = "Restart"

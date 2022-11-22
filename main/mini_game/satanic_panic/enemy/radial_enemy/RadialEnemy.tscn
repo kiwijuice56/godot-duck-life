@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfurysner0vr8"]
+
+[ext_resource type="PackedScene" uid="uid://dp1xa00ub2nfc" path="res://main/mini_game/satanic_panic/enemy/Enemy.tscn" id="1_6l5kg"]
+[ext_resource type="Script" path="res://main/mini_game/satanic_panic/enemy/radial_enemy/radial_enemy.gd" id="2_vi0u2"]
+[ext_resource type="PackedScene" path="res://main/mini_game/satanic_panic/enemy_bullet/radial_bullet/RadialBullet.tscn" id="3_4hhij"]
+[ext_resource type="Texture2D" uid="uid://egdcew6juqrl" path="res://main/mini_game/satanic_panic/enemy/radial_enemy/radial_enemy.png" id="3_x0r12"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5nquu"]
+radius = 24.0
+
+[node name="RadialEnemy" instance=ExtResource("1_6l5kg")]
+script = ExtResource("2_vi0u2")
+bullet = ExtResource("3_4hhij")
+speed = 90
+health = 5
+score = 8
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_x0r12")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_5nquu")
+
+[node name="ShootDelay" parent="." index="3"]
+wait_time = 0.15

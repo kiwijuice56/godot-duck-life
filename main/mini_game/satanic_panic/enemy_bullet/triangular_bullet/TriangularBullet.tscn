@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://dkuhglsdue141" path="res://main/mini_game/satanic_panic/enemy_bullet/EnemyBullet.tscn" id="1_j5uow"]
+
+[node name="TriangularBullet" instance=ExtResource("1_j5uow")]
+modulate = Color(1, 0.670588, 0.67451, 1)

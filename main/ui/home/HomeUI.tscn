@@ -1,0 +1,225 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv43tssb4ceph"]
+
+[ext_resource type="Theme" uid="uid://ckussntyn5vni" path="res://main/ui/main_theme.tres" id="1_kyg1g"]
+[ext_resource type="Script" path="res://main/ui/home/home_ui.gd" id="2_xk2mw"]
+[ext_resource type="Script" path="res://main/ui/home/stat_progress.gd" id="3_673eb"]
+
+[node name="HomeUI" type="Control" node_paths=PackedStringArray("energy_buy_button", "satanic_panic_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_kyg1g")
+script = ExtResource("2_xk2mw")
+energy_buy_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/Buy Energy")
+satanic_panic_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer/Magic")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 784.0
+offset_bottom = 584.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+offset_right = 768.0
+offset_bottom = 233.0
+
+[node name="TrainContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+offset_right = 160.0
+offset_bottom = 175.0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer"]
+custom_minimum_size = Vector2(128, 0)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 159.0
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+offset_left = 44.0
+offset_right = 84.0
+offset_bottom = 26.0
+size_flags_horizontal = 4
+text = "Train"
+
+[node name="Strength" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+offset_top = 34.0
+offset_right = 128.0
+offset_bottom = 65.0
+focus_mode = 0
+text = "Praying Mantis"
+
+[node name="Agility" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+offset_top = 73.0
+offset_right = 128.0
+offset_bottom = 104.0
+focus_mode = 0
+text = "Zebra Zudo"
+
+[node name="Magic" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+offset_top = 112.0
+offset_right = 128.0
+offset_bottom = 143.0
+focus_mode = 0
+text = "Satanic Panic
+"
+
+[node name="FoodContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+offset_left = 480.0
+offset_right = 768.0
+offset_bottom = 233.0
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer"]
+custom_minimum_size = Vector2(256, 0)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 217.0
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+offset_right = 256.0
+offset_bottom = 26.0
+text = "Henry"
+horizontal_alignment = 1
+
+[node name="HealthContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+offset_top = 34.0
+offset_right = 256.0
+offset_bottom = 60.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/HealthContainer"]
+custom_minimum_size = Vector2(80, 0)
+offset_right = 80.0
+offset_bottom = 26.0
+size_flags_horizontal = 0
+text = "Health"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/HealthContainer"]
+offset_left = 84.0
+offset_right = 256.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 255.0
+step = 1.0
+show_percentage = false
+script = ExtResource("3_673eb")
+stat = "health"
+
+[node name="StrengthContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+offset_top = 68.0
+offset_right = 256.0
+offset_bottom = 94.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/StrengthContainer"]
+custom_minimum_size = Vector2(80, 0)
+offset_right = 80.0
+offset_bottom = 26.0
+size_flags_horizontal = 0
+text = "Strength"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/StrengthContainer"]
+offset_left = 84.0
+offset_right = 256.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 255.0
+step = 1.0
+show_percentage = false
+script = ExtResource("3_673eb")
+stat = "strength"
+
+[node name="AgilityContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+offset_top = 102.0
+offset_right = 256.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/AgilityContainer"]
+custom_minimum_size = Vector2(80, 0)
+offset_right = 80.0
+offset_bottom = 26.0
+size_flags_horizontal = 0
+text = "Agility"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/AgilityContainer"]
+offset_left = 84.0
+offset_right = 256.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 255.0
+step = 1.0
+show_percentage = false
+script = ExtResource("3_673eb")
+stat = "agility"
+
+[node name="MagicContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+offset_top = 136.0
+offset_right = 256.0
+offset_bottom = 162.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/MagicContainer"]
+custom_minimum_size = Vector2(80, 0)
+offset_right = 80.0
+offset_bottom = 26.0
+size_flags_horizontal = 0
+text = "Magic"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/MagicContainer"]
+offset_left = 84.0
+offset_right = 256.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 255.0
+step = 1.0
+show_percentage = false
+script = ExtResource("3_673eb")
+stat = "magic"
+
+[node name="Buy Energy" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+offset_top = 170.0
+offset_right = 256.0
+offset_bottom = 201.0
+focus_mode = 0
+text = "Buy Energy (3 gems)"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+offset_left = 706.0
+offset_top = 542.0
+offset_right = 768.0
+offset_bottom = 568.0
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Gems: 0"

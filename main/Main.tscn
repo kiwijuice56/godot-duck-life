@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc3jyat6sh8ge"]
+
+[ext_resource type="PackedScene" uid="uid://deaw4atuxfosn" path="res://main/mini_game/satanic_panic/SatanicPanic.tscn" id="2_7ctk4"]
+[ext_resource type="PackedScene" uid="uid://dsefboxhb4usp" path="res://main/home/Home.tscn" id="3_q36me"]
+
+[node name="Main" type="Node"]
+
+[node name="Home" parent="." instance=ExtResource("3_q36me")]
+satanic_panic = ExtResource("2_7ctk4")
