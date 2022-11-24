@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwxfmno3fgcdp"]
+[gd_scene load_steps=5 format=3 uid="uid://cwxfmno3fgcdp"]
 
 [ext_resource type="Script" path="res://main/mini_game/satanic_panic/player_bullet/player_bullet.gd" id="1_sm7ha"]
 [ext_resource type="Texture2D" uid="uid://o8cfwft1tuwl" path="res://main/home/energy_deco/circle.png" id="2_f1gus"]
-[ext_resource type="Texture2D" uid="uid://78pbq5l5okj6" path="res://main/mini_game/satanic_panic/enemy/light.png" id="3_xmpyu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4wsd"]
 radius = 16.0
@@ -14,7 +13,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_sm7ha")
-speed = 700
+speed = 900
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a4wsd")
@@ -24,7 +23,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_f1gus")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-10, -256, 20, 512)
+rect = Rect2(-256, -256, 512, 512)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 64
@@ -34,13 +33,8 @@ emission_shape = 1
 emission_sphere_radius = 4.0
 direction = Vector2(0, 1)
 spread = 16.0
-gravity = Vector2(0, 256)
+gravity = Vector2(0, 0)
 initial_velocity_max = 128.0
 scale_amount_min = 0.01
 scale_amount_max = 0.15
 color_ramp = SubResource("Gradient_nivm4")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 0.2
-texture = ExtResource("3_xmpyu")
-texture_scale = 0.5

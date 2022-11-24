@@ -1,0 +1,53 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://koj81jb42mav"]
+
+[ext_resource type="FontFile" uid="uid://cmgs08r7kimd1" path="res://main/ui/VarelaRound-Regular.ttf" id="1_iutm8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4ouw"]
+bg_color = Color(0.4, 0.415686, 0.521569, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmxas"]
+bg_color = Color(0.462745, 0.501961, 0.580392, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7ksx"]
+bg_color = Color(0.352941, 0.329412, 0.470588, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8ei7"]
+bg_color = Color(0.0901961, 0.0823529, 0.168627, 0.937255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+
+[resource]
+default_font = ExtResource("1_iutm8")
+default_font_size = 18
+Button/styles/disabled = SubResource("StyleBoxFlat_u4ouw")
+Button/styles/focus = SubResource("StyleBoxFlat_pmxas")
+Button/styles/hover = SubResource("StyleBoxFlat_pmxas")
+Button/styles/normal = SubResource("StyleBoxFlat_u4ouw")
+Button/styles/pressed = SubResource("StyleBoxFlat_x7ksx")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o8ei7")

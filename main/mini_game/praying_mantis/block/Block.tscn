@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcv54dujjcsen"]
+
+[ext_resource type="Script" path="res://main/mini_game/praying_mantis/block/explode_object.gd" id="2_4was0"]
+[ext_resource type="Script" path="res://main/mini_game/praying_mantis/block/block.gd" id="2_08n1a"]
+[ext_resource type="Texture2D" uid="uid://bm222nl6dhfyw" path="res://main/mini_game/praying_mantis/block/block.svg" id="3_p0ci5"]
+[ext_resource type="AudioStream" uid="uid://b07o3hfd7sr32" path="res://main/mini_game/praying_mantis/block/break.wav" id="4_cote4"]
+[ext_resource type="Texture2D" uid="uid://o8cfwft1tuwl" path="res://main/home/energy_deco/circle.png" id="5_f1kgi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qapq"]
+size = Vector2(256, 256)
+
+[sub_resource type="Curve" id="Curve_33d4y"]
+_data = [Vector2(0, 0.112186), 0.0, 0.0, 0, 0, Vector2(0.163968, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7dp7h"]
+offsets = PackedFloat32Array(0.0955882, 0.308824, 0.680147, 1)
+colors = PackedColorArray(1, 0.9979, 0.952795, 1, 1, 0.969904, 0.323399, 1, 0.704348, 0.194878, 0.227069, 1, 0.43999, 0.0598, 0.46, 0)
+
+[node name="Block" type="Sprite2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("2_08n1a")
+width = 200
+speed = 1500
+colors = [Color(1, 0.431373, 0.694118, 1), Color(0.94902, 0.611765, 1, 1), Color(1, 0.694118, 0.572549, 1), Color(0.964706, 1, 0.572549, 1), Color(0.376471, 0.913725, 1, 1), Color(0.407843, 1, 0.756863, 1)]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+script = ExtResource("2_4was0")
+blocks_impulse = 400
+blocks_gravity_scale = 4
+debris_max_time = 1
+remove_debris = true
+explosion_delay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+modulate = Color(0.537255, 1, 0.592157, 1)
+texture = ExtResource("3_p0ci5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_7qapq")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(64, 64)
+offset_left = -38.5714
+offset_top = -85.7143
+offset_right = 358.429
+offset_bottom = 735.286
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 600
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cote4")
+volume_db = 8.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-11, -10.6667)
+scale = Vector2(1.5, 1.5)
+z_index = 1
+emitting = false
+amount = 64
+lifetime = 0.45
+one_shot = true
+speed_scale = 2.5
+explosiveness = 0.93
+randomness = 1.0
+texture = ExtResource("5_f1kgi")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 600)
+initial_velocity_min = 120.0
+initial_velocity_max = 256.0
+scale_amount_min = 0.2
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_33d4y")
+color_ramp = SubResource("Gradient_7dp7h")

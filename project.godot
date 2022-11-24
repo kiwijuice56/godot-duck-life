@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Sprite2D",
+"class": &"Block",
+"language": &"GDScript",
+"path": "res://main/mini_game/praying_mantis/block/block.gd"
+}, {
 "base": "Resource",
 "class": &"DuckInfo",
 "language": &"GDScript",
@@ -60,6 +65,16 @@ _global_script_classes=[{
 "path": "res://main/mini_game/satanic_panic/player_bullet/player_bullet.gd"
 }, {
 "base": "MiniGame",
+"class": &"PrayingMantis",
+"language": &"GDScript",
+"path": "res://main/mini_game/praying_mantis/praying_mantis.gd"
+}, {
+"base": "MiniGameUI",
+"class": &"PrayingMantisUI",
+"language": &"GDScript",
+"path": "res://main/ui/praying_mantis_ui.gd"
+}, {
+"base": "MiniGame",
 "class": &"SatanicPanic",
 "language": &"GDScript",
 "path": "res://main/mini_game/satanic_panic/satanic_panic.gd"
@@ -98,8 +113,14 @@ _global_script_classes=[{
 "class": &"TitleUI",
 "language": &"GDScript",
 "path": "res://main/ui/title/title.gd"
+}, {
+"base": "ScreenShakeCamera",
+"class": &"VignetteScreenShakeCamera",
+"language": &"GDScript",
+"path": "res://main/mini_game/praying_mantis/vignette_screen_shake_camera.gd"
 }]
 _global_script_class_icons={
+"Block": "",
 "DuckInfo": "",
 "DuckStatProgressBar": "",
 "EnemyBullet": "",
@@ -110,6 +131,8 @@ _global_script_class_icons={
 "MiniGame": "",
 "MiniGameUI": "",
 "PlayerBullet": "",
+"PrayingMantis": "",
+"PrayingMantisUI": "",
 "SatanicPanic": "",
 "SatanicPanicEnemy": "",
 "SatanicPanicPlayer": "",
@@ -117,7 +140,8 @@ _global_script_class_icons={
 "SatanicPanicTriangularEnemy": "",
 "SatanicPanicUI": "",
 "ScreenShakeCamera": "",
-"TitleUI": ""
+"TitleUI": "",
+"VignetteScreenShakeCamera": ""
 }
 
 [application]
@@ -193,4 +217,5 @@ shoot={
 
 [rendering]
 
+limits/opengl/max_renderable_lights=64
 environment/defaults/default_clear_color=Color(0.247059, 0.247059, 0.247059, 1)

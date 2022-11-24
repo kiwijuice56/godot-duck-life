@@ -8,7 +8,7 @@ extends Area2D
 @export var hop_time: float = 0.2
 @export var boundary: int = 64
 
-@export var scale_amount: float = 0.001
+@export var scale_amount: float = 0.0005
 @export var scale_time: float = 0.1
 
 var move_dir: int = 1

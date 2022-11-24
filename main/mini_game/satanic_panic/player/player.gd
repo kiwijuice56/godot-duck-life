@@ -3,6 +3,8 @@ extends Area2D
 
 @export var player_bullet: PackedScene
 @export var speed := 512
+@export var shoot_sound: Resource
+@export var death_sound: Resource
 
 signal died
 
@@ -14,6 +16,12 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if not is_physics_processing():
 		return
+	var audio := AudioStreamPlayer.new()
+	audio.stream = death_sound
+	audio.pitch_scale = randf_range(0.8, 1.2)
+	audio.finished.connect(audio.queue_free)
+	get_parent().add_child(audio)
+	audio.play()
 	get_parent().get_node("ScreenShakeCamera").add_trauma(512)
 	set_physics_process(false)
 	$AnimationPlayer.play("death")
@@ -54,5 +62,13 @@ func shoot() -> void:
 	get_parent().move_child(new_bullet, 1)
 	new_bullet.global_position = global_position
 	new_bullet.dir = Vector2(0, -1).rotated(2 * PI / 3).rotated(2 * PI / 3)
+	
+	var audio := AudioStreamPlayer.new()
+	audio.stream = shoot_sound
+	audio.pitch_scale = randf_range(0.6, 1.2)
+	audio.volume_db -= 5
+	audio.finished.connect(audio.queue_free)
+	get_parent().add_child(audio)
+	audio.play()
 	
 	$ShootDelay.start()

@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0jd4v8741fa6"]
+[gd_scene load_steps=4 format=3 uid="uid://b0jd4v8741fa6"]
 
 [ext_resource type="PackedScene" uid="uid://b3gmy0v4hdwl1" path="res://main/ui/mini_game/MiniGameUI.tscn" id="1_4ftdq"]
+[ext_resource type="Theme" uid="uid://koj81jb42mav" path="res://main/ui/ui_theme.tres" id="2_jnsll"]
 [ext_resource type="Script" path="res://main/ui/mini_game/satanic_panic/satanic_panic_ui.gd" id="2_nhpw8"]
 
 [node name="UI" node_paths=PackedStringArray("end_button", "game_over_screen", "game_over_label") instance=ExtResource("1_4ftdq")]
+theme = ExtResource("2_jnsll")
 script = ExtResource("2_nhpw8")
 end_button = NodePath("PanelContainer2/MarginContainer/VBoxContainer/Button")
 game_over_screen = NodePath("PanelContainer2")
 game_over_label = NodePath("PanelContainer2/MarginContainer/VBoxContainer/Description")
 
+[node name="ScoreLabel" parent="MarginContainer" index="0"]
+offset_left = 20.0
+
 [node name="Title" parent="PanelContainer/MarginContainer/VBoxContainer" index="0"]
 text = "Satanic Panic Training"
 
 [node name="Description" parent="PanelContainer/MarginContainer/VBoxContainer" index="1"]
+offset_bottom = 253.0
 text = "Try to destroy as many enemies as you can with your duck's magic powers! Use the arrow keys to move around and the z/space keys to shoot."
+
+[node name="Button" parent="PanelContainer/MarginContainer/VBoxContainer" index="2"]
+offset_top = 261.0

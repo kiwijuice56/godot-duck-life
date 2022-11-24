@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcrl0cryesdy1"]
+[gd_scene load_steps=12 format=3 uid="uid://bcrl0cryesdy1"]
 
 [ext_resource type="Script" path="res://main/mini_game/satanic_panic/player/player.gd" id="1_4rotx"]
 [ext_resource type="Texture2D" uid="uid://b3w6ig6fwsjjo" path="res://main/home/duck/godot.png" id="1_snycl"]
 [ext_resource type="PackedScene" uid="uid://cwxfmno3fgcdp" path="res://main/mini_game/satanic_panic/player_bullet/PlayerBullet.tscn" id="2_nvpno"]
+[ext_resource type="AudioStream" uid="uid://dyo3vrbll6ehh" path="res://main/mini_game/satanic_panic/player/primary_shot.wav" id="3_dlhpf"]
 [ext_resource type="Texture2D" uid="uid://o8cfwft1tuwl" path="res://main/home/energy_deco/circle.png" id="3_nkyxp"]
+[ext_resource type="AudioStream" uid="uid://bvnna24x8s4wp" path="res://main/mini_game/satanic_panic/enemy/death.wav" id="4_fgvhg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ftlyt"]
 
@@ -103,6 +105,8 @@ collision_mask = 16
 script = ExtResource("1_4rotx")
 player_bullet = ExtResource("2_nvpno")
 speed = 400
+shoot_sound = ExtResource("3_dlhpf")
+death_sound = ExtResource("4_fgvhg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
