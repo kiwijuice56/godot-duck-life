@@ -17,11 +17,13 @@ func _ready() -> void:
 
 func save_to_file() -> void:
 	duck_info.version = ProjectSettings.get_setting("application/config/version")
+	duck_info.gems = gems
 	ResourceSaver.save(duck_info, "user://save.tres")
 
 func load_from_file() -> void:
 	if ResourceLoader.exists("user://save.tres"):
 		duck_info = ResourceLoader.load("user://save.tres")
+		gems = duck_info.gems
 	else:
 		initialize_file()
 	update_duck_info()

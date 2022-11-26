@@ -2,6 +2,7 @@ class_name SatanicPanic
 extends MiniGame
 
 @export var enemies: Array[PackedScene]
+
 @export var prob_weight: Array[float]
 @export var speed_increase := 0.025
 
@@ -18,7 +19,7 @@ func _on_player_died() -> void:
 	var new_magic = max(1, int(score / 16))
 	GlobalInfo.duck_info.magic += new_magic
 	GlobalInfo.update_duck_info()
-	UI.game_over_label.text = "Your duck gained %d magic points!" % new_magic
+	UI.game_over_label.text = "Your duck gained %d magic points! Yay!" % new_magic
 	await UI.game_over()
 	finished.emit()
 
@@ -42,7 +43,7 @@ func _on_spawn_timeout() -> void:
 
 func spawn() -> void:
 	var prob: float = randf()
-	var new_enemy: SatanicPanicEnemy
+	var new_enemy: Node2D
 	for i in range(len(prob_weight)):
 		if prob < prob_weight[i]:
 			new_enemy = enemies[i].instantiate()
@@ -51,6 +52,8 @@ func spawn() -> void:
 	move_child(new_enemy, 2)
 	new_enemy.speed += new_enemy.speed * randf_range(-0.15, 0.25)
 	new_enemy.global_position.x = randi() % int(get_viewport().get_visible_rect().size.x) 
+	new_enemy.global_position.x = clamp(new_enemy.global_position.x, 16, get_viewport().get_visible_rect().size.x - 16)
 	new_enemy.global_position.y = -64
-	new_enemy.player = $Player
-	new_enemy.died.connect(_on_enemy_died)
+	if new_enemy is SatanicPanicEnemy:
+		new_enemy.player = $Player
+		new_enemy.died.connect(_on_enemy_died)

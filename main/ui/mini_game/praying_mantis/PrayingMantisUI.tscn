@@ -1,30 +1,99 @@
-[gd_scene load_steps=4 format=3 uid="uid://grwwjq4jrar8"]
+[gd_scene load_steps=5 format=3 uid="uid://grwwjq4jrar8"]
 
 [ext_resource type="PackedScene" uid="uid://b3gmy0v4hdwl1" path="res://main/ui/mini_game/MiniGameUI.tscn" id="1_nxks0"]
 [ext_resource type="Theme" uid="uid://koj81jb42mav" path="res://main/ui/ui_theme.tres" id="2_30dl2"]
 [ext_resource type="Script" path="res://main/ui/praying_mantis_ui.gd" id="3_h54vw"]
+[ext_resource type="Texture2D" uid="uid://ceq670kjix2f6" path="res://main/ui/mini_game/praying_mantis/timer.png" id="4_forf8"]
 
-[node name="UI" node_paths=PackedStringArray("time_label", "end_button", "game_over_screen", "game_over_label") instance=ExtResource("1_nxks0")]
+[node name="UI" node_paths=PackedStringArray("time_label", "timer_block", "end_button", "game_over_screen", "game_over_label") instance=ExtResource("1_nxks0")]
 theme = ExtResource("2_30dl2")
 script = ExtResource("3_h54vw")
-time_label = NodePath("MarginContainer2/Label")
+time_label = NodePath("Control/Label")
+timer_block = NodePath("Control")
 end_button = NodePath("PanelContainer2/MarginContainer/VBoxContainer/Button")
 game_over_screen = NodePath("PanelContainer2")
 game_over_label = NodePath("PanelContainer2/MarginContainer/VBoxContainer/Description")
 metadata/_edit_horizontal_guides_ = [-157.0]
 
+[node name="Control" type="Control" parent="." index="0"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -59.0
+offset_right = 37.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Timer" type="Timer" parent="Control" index="0"]
+
+[node name="TextureRect" type="TextureRect" parent="Control" index="1"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -600.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(300, 580)
+texture = ExtResource("4_forf8")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Control" index="2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -85.0
+offset_right = 23.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "20"
+horizontal_alignment = 1
+
 [node name="ScoreLabel" parent="MarginContainer" index="0"]
 offset_left = 20.0
 
+[node name="MarginContainer" parent="PanelContainer" index="0"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 398.0
+offset_bottom = 298.0
+
+[node name="VBoxContainer" parent="PanelContainer/MarginContainer" index="0"]
+offset_right = 388.0
+offset_bottom = 288.0
+
 [node name="Title" parent="PanelContainer/MarginContainer/VBoxContainer" index="0"]
+offset_right = 380.0
 text = "Praying Mantis Training"
 
 [node name="Description" parent="PanelContainer/MarginContainer/VBoxContainer" index="1"]
-offset_bottom = 253.0
-text = "Bash away the rocks by typing the correct keys as fast as you can! Try to bash as many as youc an in 20 seconds while avoiding incorrect keys."
+offset_right = 380.0
+offset_bottom = 249.0
+text = "Bash away the rocks by typing the correct keys as fast as you can! Try to bash as many as you can in 20 seconds while avoiding incorrect keys."
 
 [node name="Button" parent="PanelContainer/MarginContainer/VBoxContainer" index="2"]
-offset_top = 261.0
+offset_top = 257.0
+offset_right = 380.0
+offset_bottom = 280.0
+
+[node name="Title" parent="PanelContainer2/MarginContainer/VBoxContainer" index="0"]
+text = "Time out!"
 
 [node name="Description" parent="PanelContainer2/MarginContainer/VBoxContainer" index="1"]
 text = "Your duck earned: 0 strength points!
@@ -32,24 +101,3 @@ Amazing!"
 
 [node name="Button" parent="PanelContainer2/MarginContainer/VBoxContainer" index="2"]
 text = "Awesome opposum!"
-
-[node name="MarginContainer2" type="MarginContainer" parent="." index="3"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = -91.0
-offset_right = 37.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_bottom = 32
-
-[node name="Label" type="Label" parent="MarginContainer2" index="0"]
-offset_right = 80.0
-offset_bottom = 81.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 64
-text = "20"

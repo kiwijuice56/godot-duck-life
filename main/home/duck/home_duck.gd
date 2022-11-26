@@ -16,6 +16,8 @@ var move_dir: int = 1
 func _ready() -> void:
 	$HopTimer.timeout.connect(_on_hop_timeout)
 	$Sprite2D.scale = Vector2(0.025, 0.025) + scale_amount * GlobalInfo.duck_info.health * Vector2(1, 1)
+	$Sprite2D.material.set_shader_parameter("shift", GlobalInfo.duck_info.hue)
+	$Sprite2D.material.set_shader_parameter("light", GlobalInfo.duck_info.brightness)
 
 func _on_hop_timeout() -> void:
 	hop()

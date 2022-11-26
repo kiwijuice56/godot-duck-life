@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://b5plwdg3rsaqv"]
 
-[ext_resource type="PackedScene" uid="uid://dkuhglsdue141" path="res://main/mini_game/satanic_panic/enemy_bullet/EnemyBullet.tscn" id="1_j5uow"]
+[ext_resource type="PackedScene" path="res://main/mini_game/satanic_panic/enemy_bullet/EnemyBullet.tscn" id="1_j5uow"]
 
 [node name="RadialBullet" instance=ExtResource("1_j5uow")]
 modulate = Color(0.839216, 0.670588, 1, 1)
+speed = 200

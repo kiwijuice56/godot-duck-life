@@ -16,17 +16,21 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if not is_physics_processing():
 		return
-	var audio := AudioStreamPlayer.new()
-	audio.stream = death_sound
-	audio.pitch_scale = randf_range(0.8, 1.2)
-	audio.finished.connect(audio.queue_free)
-	get_parent().add_child(audio)
-	audio.play()
-	get_parent().get_node("ScreenShakeCamera").add_trauma(512)
-	set_physics_process(false)
-	$AnimationPlayer.play("death")
-	await $AnimationPlayer.animation_finished
-	died.emit()
+	if area is SatanicCoin:
+		GlobalInfo.gems += 1
+		area.collect()
+	else:
+		var audio := AudioStreamPlayer.new()
+		audio.stream = death_sound
+		audio.pitch_scale = randf_range(0.8, 1.2)
+		audio.finished.connect(audio.queue_free)
+		get_parent().add_child(audio)
+		audio.play()
+		get_parent().get_node("ScreenShakeCamera").add_trauma(512)
+		set_physics_process(false)
+		$AnimationPlayer.play("death")
+		await $AnimationPlayer.animation_finished
+		died.emit()
 
 func _physics_process(delta) -> void:
 	input()
@@ -46,6 +50,7 @@ func input() -> void:
 func shoot() -> void:
 	if not $ShootDelay.is_stopped():
 		return
+	$AnimationPlayer.play("shoot")
 	var new_bullet: PlayerBullet = player_bullet.instantiate()
 	get_parent().add_child(new_bullet)
 	get_parent().move_child(new_bullet, 2)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkicbv8lr6fqk"]
+[gd_scene load_steps=7 format=3 uid="uid://bkicbv8lr6fqk"]
 
 [ext_resource type="Script" path="res://main/home/duck/home_duck.gd" id="1_8y3tu"]
 [ext_resource type="Texture2D" uid="uid://b3w6ig6fwsjjo" path="res://main/home/duck/godot.png" id="2_f5wi8"]
+[ext_resource type="Material" uid="uid://dj5syt6gudkpk" path="res://main/home/duck/player_material.tres" id="2_jneau"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lg3my"]
 radius = 24.0
@@ -35,6 +36,7 @@ shape = SubResource("CircleShape2D_lg3my")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
+material = ExtResource("2_jneau")
 position = Vector2(0, 2)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("2_f5wi8")

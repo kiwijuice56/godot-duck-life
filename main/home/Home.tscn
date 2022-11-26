@@ -1,18 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsefboxhb4usp"]
+[gd_scene load_steps=11 format=3 uid="uid://dsefboxhb4usp"]
 
 [ext_resource type="Script" path="res://main/home/home.gd" id="1_gmnjb"]
 [ext_resource type="PackedScene" uid="uid://bmw0gca7avxe" path="res://main/home/energy_deco/EnergyDeco.tscn" id="2_augck"]
 [ext_resource type="Texture2D" uid="uid://conu5ye0k6asp" path="res://main/home/square.png" id="3_cm8xq"]
 [ext_resource type="Texture2D" uid="uid://c1i6p3qgvgqcg" path="res://main/mini_game/satanic_panic/background.png" id="3_op8vm"]
+[ext_resource type="PackedScene" uid="uid://deaw4atuxfosn" path="res://main/mini_game/satanic_panic/SatanicPanic.tscn" id="3_podbr"]
 [ext_resource type="PackedScene" uid="uid://bkicbv8lr6fqk" path="res://main/home/duck/HomeDuck.tscn" id="4_ey4io"]
+[ext_resource type="PackedScene" uid="uid://cmrp81ukhcx6n" path="res://main/mini_game/praying_mantis/PrayingMantis.tscn" id="4_mrihp"]
 [ext_resource type="PackedScene" uid="uid://bv43tssb4ceph" path="res://main/ui/home/HomeUI.tscn" id="5_dph4t"]
 [ext_resource type="AudioStream" uid="uid://l1x7cta24tww" path="res://main/home/background.mp3" id="6_qfbpj"]
+[ext_resource type="AudioStream" uid="uid://cqrff0mk41w6m" path="res://main/home/buy.wav" id="8_pcwig"]
 
 [node name="Home" type="Node" node_paths=PackedStringArray("ui", "energy_spawn_marker")]
 script = ExtResource("1_gmnjb")
 ui = NodePath("UI")
 energy_deco = ExtResource("2_augck")
 energy_spawn_marker = NodePath("EnergySpawn")
+satanic_panic = ExtResource("3_podbr")
+praying_mantis = ExtResource("4_mrihp")
 
 [node name="Background" type="Sprite2D" parent="."]
 light_mask = 2
@@ -41,3 +46,7 @@ position = Vector2(362, -40)
 stream = ExtResource("6_qfbpj")
 volume_db = -3.0
 autoplay = true
+
+[node name="Buy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pcwig")
+volume_db = 3.0

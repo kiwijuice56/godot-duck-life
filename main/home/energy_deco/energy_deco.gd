@@ -20,6 +20,7 @@ func _physics_process(delta) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area == duck:
+		$AudioStreamPlayer.pitch_scale = randf_range(.8, 1.2)
 		velocity *= 0.1
 		GlobalInfo.duck_info.health += 1
 		GlobalInfo.update_duck_info()

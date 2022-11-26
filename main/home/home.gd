@@ -18,6 +18,8 @@ func _ready() -> void:
 	duck = $Duck
 
 func _on_energy_bought() -> void:
+	$Buy.pitch_scale = randf_range(.9, 1.1)
+	$Buy.play()
 	var new_deco: EnergyDeco = energy_deco.instantiate()
 	add_child(new_deco)
 	new_deco.global_position = energy_spawn_marker.global_position

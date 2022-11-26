@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmw0gca7avxe"]
+[gd_scene load_steps=10 format=3 uid="uid://bmw0gca7avxe"]
 
 [ext_resource type="Script" path="res://main/home/energy_deco/energy_deco.gd" id="1_eej6n"]
 [ext_resource type="Texture2D" uid="uid://78pbq5l5okj6" path="res://main/mini_game/satanic_panic/enemy/light.png" id="3_mohpw"]
 [ext_resource type="Texture2D" uid="uid://o8cfwft1tuwl" path="res://main/home/energy_deco/circle.png" id="3_yfh4g"]
+[ext_resource type="AudioStream" uid="uid://chg2ouve45afe" path="res://main/home/energy_deco/energy.wav" id="4_ka1ld"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0haia"]
 radius = 32.0
@@ -52,6 +53,18 @@ tracks/3/path = NodePath("PointLight2D:enabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -132,6 +145,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c3bjm"]
 _data = {
@@ -146,12 +171,13 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.408, 0.768967, 0.85, 0.70196
 [node name="EnergyDeco" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_eej6n")
+attract_strength = 9.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0haia")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.52549, 0.913725, 1, 1)
+modulate = Color(0.654902, 0.807843, 1, 1)
 light_mask = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_yfh4g")
@@ -181,3 +207,7 @@ energy = 0.2
 range_item_cull_mask = 2
 texture = ExtResource("3_mohpw")
 texture_scale = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ka1ld")
+volume_db = 5.0

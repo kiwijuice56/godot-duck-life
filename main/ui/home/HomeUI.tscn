@@ -1,10 +1,83 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv43tssb4ceph"]
+[gd_scene load_steps=15 format=3 uid="uid://bv43tssb4ceph"]
 
 [ext_resource type="Theme" uid="uid://koj81jb42mav" path="res://main/ui/ui_theme.tres" id="1_c5fsn"]
 [ext_resource type="Script" path="res://main/ui/home/home_ui.gd" id="2_xk2mw"]
 [ext_resource type="Script" path="res://main/ui/home/stat_progress.gd" id="3_673eb"]
+[ext_resource type="Script" path="res://main/ui/home/coin_label.gd" id="4_b1dd7"]
+[ext_resource type="Script" path="res://main/ui/home/news_label.gd" id="5_7powf"]
 
-[node name="HomeUI" type="Control" node_paths=PackedStringArray("energy_buy_button", "satanic_panic_button", "praying_mantis_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3jo4"]
+content_margin_left = 6.0
+bg_color = Color(0.0901961, 0.0823529, 0.168627, 0.937255)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3gir"]
+content_margin_left = 6.0
+bg_color = Color(0.372549, 0.854902, 0.611765, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucmd6"]
+content_margin_left = 6.0
+bg_color = Color(0.0901961, 0.0823529, 0.168627, 0.937255)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kk3pe"]
+content_margin_left = 6.0
+bg_color = Color(0.886275, 0.541176, 0.603922, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y80s"]
+content_margin_left = 6.0
+bg_color = Color(0.0901961, 0.0823529, 0.168627, 0.937255)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvlg2"]
+content_margin_left = 6.0
+bg_color = Color(0.164706, 0.788235, 0.756863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eofql"]
+content_margin_left = 6.0
+bg_color = Color(0.0901961, 0.0823529, 0.168627, 0.937255)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch2sw"]
+content_margin_left = 6.0
+bg_color = Color(0.447059, 0.447059, 0.737255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cq76"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.4, 0.415686, 0.521569, 1)
+
+[node name="HomeUI" type="Control" node_paths=PackedStringArray("energy_buy_button", "satanic_panic_button", "praying_mantis_button", "name_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,14 +88,23 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_c5fsn")
 script = ExtResource("2_xk2mw")
-energy_buy_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/Buy Energy")
-satanic_panic_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer/Magic")
-praying_mantis_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer/Strength")
+energy_buy_button = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/Buy Energy")
+satanic_panic_button = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer/Magic")
+praying_mantis_button = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer/Strength")
+name_label = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/Label")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+offset_right = 800.0
+offset_bottom = 262.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
@@ -30,17 +112,20 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 784.0
-offset_bottom = 584.0
+offset_bottom = 246.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 768.0
-offset_bottom = 225.0
+offset_bottom = 230.0
 
-[node name="TrainContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TrainContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 offset_right = 196.0
 offset_bottom = 166.0
 size_flags_vertical = 0
@@ -49,8 +134,9 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer"]
 custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 180.0
@@ -58,14 +144,16 @@ offset_bottom = 150.0
 size_flags_vertical = 0
 theme_override_constants/separation = 13
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+layout_mode = 2
 offset_left = 60.0
 offset_right = 103.0
 offset_bottom = 26.0
 size_flags_horizontal = 4
 text = "Train"
 
-[node name="Strength" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+[node name="Strength" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 39.0
 offset_right = 164.0
 offset_bottom = 62.0
@@ -74,14 +162,16 @@ shortcut_in_tooltip = false
 text = "Praying Mantis"
 text_overrun_behavior = 4
 
-[node name="Agility" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+[node name="Agility" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 75.0
 offset_right = 164.0
 offset_bottom = 98.0
 focus_mode = 0
 text = "Zebra Zudo"
 
-[node name="Magic" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+[node name="Magic" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 111.0
 offset_right = 164.0
 offset_bottom = 134.0
@@ -89,10 +179,11 @@ focus_mode = 0
 text = "Satanic Panic
 "
 
-[node name="FoodContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="FoodContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 offset_left = 480.0
 offset_right = 768.0
-offset_bottom = 225.0
+offset_bottom = 230.0
 size_flags_horizontal = 10
 size_flags_vertical = 0
 theme_override_constants/margin_left = 16
@@ -100,128 +191,238 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer"]
 custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 272.0
-offset_bottom = 209.0
-theme_override_constants/separation = 8
+offset_bottom = 214.0
+theme_override_constants/separation = 9
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 256.0
 offset_bottom = 26.0
 text = "Henry"
 horizontal_alignment = 1
 
-[node name="HealthContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-offset_top = 34.0
+[node name="HealthContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 35.0
 offset_right = 256.0
-offset_bottom = 60.0
+offset_bottom = 61.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/HealthContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/HealthContainer"]
 custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
 offset_right = 80.0
 offset_bottom = 26.0
 size_flags_horizontal = 0
 text = "Health"
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/HealthContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/HealthContainer"]
+layout_mode = 2
 offset_left = 84.0
 offset_right = 256.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_s3jo4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_v3gir")
 max_value = 255.0
 step = 1.0
+value = 14.0
 show_percentage = false
 script = ExtResource("3_673eb")
 stat = "health"
 
-[node name="StrengthContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-offset_top = 68.0
+[node name="StrengthContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 70.0
 offset_right = 256.0
-offset_bottom = 94.0
+offset_bottom = 96.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/StrengthContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/StrengthContainer"]
 custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
 offset_right = 80.0
 offset_bottom = 26.0
 size_flags_horizontal = 0
 text = "Strength"
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/StrengthContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/StrengthContainer"]
+layout_mode = 2
 offset_left = 84.0
 offset_right = 256.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_ucmd6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kk3pe")
 max_value = 255.0
 step = 1.0
 show_percentage = false
 script = ExtResource("3_673eb")
 stat = "strength"
 
-[node name="AgilityContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-offset_top = 102.0
+[node name="AgilityContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 105.0
 offset_right = 256.0
-offset_bottom = 128.0
+offset_bottom = 131.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/AgilityContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/AgilityContainer"]
 custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
 offset_right = 80.0
 offset_bottom = 26.0
 size_flags_horizontal = 0
 text = "Agility"
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/AgilityContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/AgilityContainer"]
+layout_mode = 2
 offset_left = 84.0
 offset_right = 256.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_1y80s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vvlg2")
 max_value = 255.0
 step = 1.0
 show_percentage = false
 script = ExtResource("3_673eb")
 stat = "agility"
 
-[node name="MagicContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-offset_top = 136.0
+[node name="MagicContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 140.0
 offset_right = 256.0
-offset_bottom = 162.0
+offset_bottom = 166.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/MagicContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/MagicContainer"]
 custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
 offset_right = 80.0
 offset_bottom = 26.0
 size_flags_horizontal = 0
 text = "Magic"
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/MagicContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/MagicContainer"]
+layout_mode = 2
 offset_left = 84.0
 offset_right = 256.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_eofql")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ch2sw")
 max_value = 255.0
 step = 1.0
 show_percentage = false
 script = ExtResource("3_673eb")
 stat = "magic"
 
-[node name="Buy Energy" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-offset_top = 170.0
+[node name="Buy Energy" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 175.0
 offset_right = 256.0
-offset_bottom = 193.0
+offset_bottom = 198.0
 focus_mode = 0
-text = "Buy Energy (3 gems)"
+text = "Buy Food (1 coin)"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-offset_left = 698.0
-offset_top = 542.0
-offset_right = 768.0
-offset_bottom = 568.0
-size_flags_horizontal = 8
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 566.0
+offset_right = 800.0
+offset_bottom = 600.0
 size_flags_vertical = 10
-text = "Gems: 0"
+theme_override_styles/panel = SubResource("StyleBoxFlat_7cq76")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 794.0
+offset_bottom = 30.0
+
+[node name="CoinLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 61.0
+offset_bottom = 26.0
+size_flags_horizontal = 2
+size_flags_vertical = 10
+text = "0 coins"
+vertical_alignment = 1
+script = ExtResource("4_b1dd7")
+
+[node name="NewsLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 117.0
+offset_right = 788.0
+offset_bottom = 26.0
+size_flags_horizontal = 10
+text = "Why did the duck cross the playground? To get to the other slide - Punny Duck"
+vertical_alignment = 1
+script = ExtResource("5_7powf")
+texts = "0 48 Ducks rock! - Local Duck Enthusiast
+0 48 Woohoo!!! - Local Duck Enthusiast
+0 48 Ducks are great for the environment. - Local Duck Enthusiast
+32 64 Maybe ducks have a few caveats. So what?! - Local Duck Enthusiast
+64 90 Sorry. I've seen the errors in my ways. - Reformed Duck Enthusiast
+90 1020 I've always been a fan, [name]! Forgive me! - Duck Enthusiast
+0 1020 Hi [name]! - Biggest Fan
+0 1020 [name] is the only real duck out here. - Biggest Fan
+0 1020 Duck jr. doesn't hold a candle to [name] - Biggest Fan
+0 1020 Are you ignoring me, [name]?! - Biggest Fan
+0 1020 I need to talk to your owner, [name]. - Biggest Fan
+0 1020 Blink twice if you need help [name]! - Biggest Fan
+0 1020 [name]? Stupid name. - Biggest Critic
+0 1020 [name] can't rap nearly as well as Duck jr. - Biggest Critic
+0 64 [name] probably has low stats. - Biggest Critic
+64 1020 [name]'s stats are absurd! - Biggest Critic
+0 1020 [name]? Get out! Fake duck. - Biggest Critic
+0 1020 [name] trucks like a duck without a puck. - Biggest Critic
+32 64 We need to address the shrinking colored letter-boulder population. - Governer
+0 64 Grahhh! - Governer
+0 1020 [name] has my support. - President
+0 1020 [name] and I are probably running for super president in 2028. - President
+0 1020 Ducks were never that cool... - Local Duck Hater
+0 1020 Ducks? More like... Pucks. - Local Duck Hater
+48 1020 Bewarned!! The ducks are growing stronger!  - Local Duck Hater
+128 1020 I told you so!!! - Local Duck Hater
+0 1020 I'm sorry. - Punny Duck
+0 1020 What is a duck's favorite drink? Peepsi. - Punny Duck
+0 64 What do you call a duck that can fix anything? Duck Tape. - Punny Duck
+0 64 What do Detective Duck say to his partner? \"Let's quack the case!\" - Punny Duck
+0 1020 What did a laywer say to a duck? \"I demand an egg-splanation!\" - Punny Duck
+0 1020 What do you call a cow and two ducks? Milk and quackers. - Punny Duck
+16 1020 When is roast duck bad for your health? When you're the duck. - Punny Duck
+16 1020 What do you call a clever duck? A wise quacker. - Punny Duck
+32 1020 Why do ducks check the news? For the feather forecast. - Punny Duck
+32 1020 On what side does a duck have the most feathers? The outside. - Punny Duck
+64 1020 Why did the duck cross the playground? To get to the other slide - Punny Duck
+64 1020 Is anyone laughing?! - Punny Duck
+64 1020 Tough crowd? Jeez Louise. - Punny Duck
+128 1020 What do you call [name]? Egg-curdling! - Punny Duck
+128 1020 [name], if you're listening, spare me! - Punny Duck
+0 1020 Duck legislation will end life as we know it. - Wu
+0 1020 Who is Eric? - Wu
+0 1020 I'm sorry, I only talk to top Gs. - Wu
+64 1020 THAT DUCK GOT A KNIFE! - Wu
+64 1020 I too hold a human opinion on recent topic as all normal human do. - Wu
+0 1020 why is there a news reporter. i thought this wwas duck life - Brandon
+16 1020 I'M AN UNKILLABLE DEMON KING!!! - Brandon
+0 1020 I prefer really not to speak, if I speak I in big trouble - Davinderpal
+0 1020 You should duck yourself... NOW!!! - Davinderpal
+0 1020 Be better. - Noah
+0 1020 Umm... I don't know - Jay
+0 1020 Pawesome! - Eric
+0 1020 Awesome. - Eric
+0 1020 Merry Christmas! - Santa Claws"
+
+[node name="Timer" type="Timer" parent="VBoxContainer/PanelContainer/HBoxContainer/NewsLabel"]
+wait_time = 4.0
+autostart = true

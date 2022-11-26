@@ -9,3 +9,5 @@ extends Resource
 @export var agility: int
 @export var magic: int
 @export var gems: int
+@export var hue: float
+@export var brightness: float

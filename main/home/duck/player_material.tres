@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dj5syt6gudkpk"]
+
+[ext_resource type="Shader" path="res://main/home/duck/hue_shift.gdshader" id="1_88ir4"]
+
+[resource]
+shader = ExtResource("1_88ir4")
+shader_parameter/alpha = 1.0
+shader_parameter/light = 1.0
+shader_parameter/shift = 0.0

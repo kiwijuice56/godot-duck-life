@@ -38,16 +38,20 @@ func _on_second_timeout() -> void:
 	time -= 1
 	UI.time_label.text = str(time)
 	if time == 0:
+		$ClockOff.play()
 		set_process_input(false)
 		var new_strength = max(1, int(pow(score / 16.0, 1.5)))
 		GlobalInfo.duck_info.strength += new_strength
 		GlobalInfo.update_duck_info()
-		UI.game_over_label.text = "Your duck gained %d strength points!" % new_strength
+		UI.game_over_label.text = "Your duck gained %d strength points! Amazing!" % new_strength
 		await UI.game_over()
 		finished.emit()
 	$TotalTimer.start()
 
 func _on_started() -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property(UI.timer_block, "modulate:a", 1, 0.3)
+	await tween.finished
 	$TotalTimer.start()
 	set_process_input(true)
 

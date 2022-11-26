@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://deaw4atuxfosn"]
+[gd_scene load_steps=14 format=3 uid="uid://deaw4atuxfosn"]
 
 [ext_resource type="Script" path="res://main/mini_game/satanic_panic/satanic_panic.gd" id="1_cl3a6"]
 [ext_resource type="PackedScene" uid="uid://bcrl0cryesdy1" path="res://main/mini_game/satanic_panic/player/Player.tscn" id="1_p4b7a"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bfurysner0vr8" path="res://main/mini_game/satanic_panic/enemy/radial_enemy/RadialEnemy.tscn" id="4_6scqp"]
 [ext_resource type="Script" path="res://main/mini_game/satanic_panic/screen_shake_camera.gd" id="5_8536y"]
 [ext_resource type="Texture2D" uid="uid://c1i6p3qgvgqcg" path="res://main/mini_game/satanic_panic/background.png" id="5_acc81"]
+[ext_resource type="PackedScene" uid="uid://bo5btnfnsvo1i" path="res://main/mini_game/satanic_panic/satanic_coin/SatanicCoin.tscn" id="5_o6em1"]
 [ext_resource type="PackedScene" uid="uid://b0jd4v8741fa6" path="res://main/ui/mini_game/satanic_panic/SatanicPanicUI.tscn" id="8_l63ro"]
 [ext_resource type="AudioStream" uid="uid://ja887lqq0b48" path="res://main/mini_game/satanic_panic/satanic_panic.mp3" id="9_2f18p"]
 
@@ -49,8 +50,8 @@ _data = {
 
 [node name="SatanicPanic" type="Node" node_paths=PackedStringArray("UI")]
 script = ExtResource("1_cl3a6")
-enemies = [ExtResource("2_g86vn"), ExtResource("3_k6gny"), ExtResource("4_6scqp")]
-prob_weight = [0.85, 0.93, 1.0]
+enemies = [ExtResource("2_g86vn"), ExtResource("3_k6gny"), ExtResource("4_6scqp"), ExtResource("5_o6em1")]
+prob_weight = [0.6, 0.75, 0.85, 1.0]
 UI = NodePath("UI")
 
 [node name="Background" type="Sprite2D" parent="."]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo5btnfnsvo1i"]
+
+[ext_resource type="PackedScene" uid="uid://clhqk4ll1p2t4" path="res://main/mini_game/coin/Coin.tscn" id="1_rktht"]
+[ext_resource type="Script" path="res://main/mini_game/satanic_panic/satanic_coin/satanic_coin.gd" id="2_rdlxb"]
+
+[node name="SatanicCoin" instance=ExtResource("1_rktht")]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("2_rdlxb")
+speed = 250
