@@ -4,6 +4,7 @@ extends MiniGame
 @export var block_scene: PackedScene
 var queue: Array[Block] = []
 var score := 0
+var misses := 0
 var time := 20
 
 signal shift_left
@@ -28,6 +29,7 @@ func _input(event: InputEvent) -> void:
 			score += 1
 			UI.score_label.text = str(score)
 		else:
+			misses += 1
 			$Miss.stop()
 			$Miss.play()
 			$Player/AnimationPlayer.play("mistake")
@@ -40,7 +42,9 @@ func _on_second_timeout() -> void:
 	if time == 0:
 		$ClockOff.play()
 		set_process_input(false)
-		var new_strength = max(1, int(pow(score / 16.0, 1.5)))
+		var new_strength = max(1, int(pow(score / 14.0, 1.5)))
+		if misses == 0:
+			new_strength += 1
 		GlobalInfo.duck_info.strength += new_strength
 		GlobalInfo.update_duck_info()
 		UI.game_over_label.text = "Your duck gained %d strength points! Amazing!" % new_strength

@@ -7,4 +7,4 @@
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("2_rdlxb")
-speed = 250
+speed = 200.0

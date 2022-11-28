@@ -30,7 +30,7 @@ func hop() -> void:
 		if randf() < 0.5:
 			move_dir *= -1
 		
-		var projected_x: int = position.x + hop_length * move_dir
+		var projected_x: float = position.x + hop_length * move_dir
 		if projected_x < boundary or projected_x > ProjectSettings.get_setting("display/window/size/viewport_width") - boundary:
 			move_dir *= -1
 		

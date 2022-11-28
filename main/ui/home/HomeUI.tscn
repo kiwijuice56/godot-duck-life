@@ -421,8 +421,11 @@ texts = "0 48 Ducks rock! - Local Duck Enthusiast
 0 1020 Umm... I don't know - Jay
 0 1020 Pawesome! - Eric
 0 1020 Awesome. - Eric
-0 1020 Merry Christmas! - Santa Claws"
+0 1020 Who is Wu? - Eric
+0 1020 Merry Christmas! - Santa Claws
+0 1020 Yesterday is history, tomorrow is a mystery, today is a present - Zhang
+32 1020 You should become a fortnite streamer, [name] - Connor"
 
 [node name="Timer" type="Timer" parent="VBoxContainer/PanelContainer/HBoxContainer/NewsLabel"]
-wait_time = 4.0
+wait_time = 6.0
 autostart = true

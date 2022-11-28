@@ -296,8 +296,6 @@ func _on_debris_timer_timeout():
 			var color_r = child.modulate.r
 			var color_g = child.modulate.g
 			var color_b = child.modulate.b
-			var color_a = child.modulate.a
-
 			var opacity_tween = get_tree().create_tween()
 			opacity_tween.finished.connect(_on_opacity_tween_completed.bind(child))
 			opacity_tween.tween_property(
