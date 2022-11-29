@@ -8,6 +8,7 @@ extends Node
 func _ready() -> void:
 	for child in get_children():
 		child.fighter = fighter
+	active_state.enter({})
 
 func physics_step(delta: float) -> void:
 	if not is_processing:

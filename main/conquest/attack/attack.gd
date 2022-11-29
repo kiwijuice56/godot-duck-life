@@ -7,4 +7,4 @@ func disable() -> void:
 	$CollisionShape2D.disabled = true
 
 func enable() -> void:
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = false

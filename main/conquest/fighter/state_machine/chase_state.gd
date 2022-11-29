@@ -7,15 +7,22 @@ extends State
 var target: Fighter
 
 func physics_step(delta: float) -> void:
+	if not is_instance_valid(target):
+		fighter.state_machine.transition_to("PatrolState")
+		return
 	var distance: Vector2 = target.global_position - fighter.global_position
-	fighter.scale.x = sign(distance.x)
+	if distance.x != 0:
+		fighter.get_node("Directional").scale.x = sign(distance.x)
 	if distance.length() >= attack_distance:
 		var dir := distance.normalized()
-		fighter.global_position += dir * chase_speed * delta
+		fighter.velocity = dir * chase_speed
+		fighter.move_and_slide()
 	else:
 		fighter.state_machine.transition_to("AttackState", {"target" : target, "return_state" : "ChaseState"})
 	if distance.length() >= bored_distance:
 		fighter.state_machine.transition_to("PatrolState")
 
 func enter(info: Dictionary) -> void:
-	target = info.target
+	if info.target != null:
+		target = info.target
+	fighter.get_node("AnimationPlayer").play("walk")

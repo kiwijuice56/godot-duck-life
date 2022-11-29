@@ -12,4 +12,8 @@ func _on_vision_entered(area: Area2D) -> void:
 		fighter.state_machine.transition_to("ChaseState", {"target" : area.get_parent()})
 
 func physics_step(delta) -> void:
-	fighter.global_position.x -= patrol_speed * delta 
+	fighter.velocity.x = -patrol_speed
+	fighter.move_and_slide() 
+
+func enter(info: Dictionary) -> void:
+	fighter.get_node("AnimationPlayer").play("walk")
