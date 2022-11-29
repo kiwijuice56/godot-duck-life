@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _on_player_died() -> void:
 	$SpawnDelay.stop()
-	var new_magic = max(1, int(score / 14.0))
+	var new_magic = max(1, int(score / 11.0))
 	GlobalInfo.duck_info.magic += new_magic
 	GlobalInfo.update_duck_info()
 	UI.game_over_label.text = "Your duck gained %d magic points! Yay!" % new_magic

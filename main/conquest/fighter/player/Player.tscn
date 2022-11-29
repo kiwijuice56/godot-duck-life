@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://db78yo05csicm"]
+
+[ext_resource type="PackedScene" uid="uid://dv5ydrv36ia2k" path="res://main/conquest/fighter/Fighter.tscn" id="1_6gkv5"]
+[ext_resource type="Script" path="res://main/conquest/fighter/player/input_walk_state.gd" id="2_3y88n"]
+[ext_resource type="Material" uid="uid://dj5syt6gudkpk" path="res://main/home/duck/player_material.tres" id="2_8c038"]
+
+[node name="Player" instance=ExtResource("1_6gkv5")]
+agility = 255
+
+[node name="Sprite2D" parent="." index="0"]
+material = ExtResource("2_8c038")
+
+[node name="StateMachine" parent="." index="4" node_paths=PackedStringArray("active_state")]
+active_state = NodePath("InputWalk")
+
+[node name="InputWalk" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("2_3y88n")

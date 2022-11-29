@@ -94,7 +94,6 @@ praying_mantis_button = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HB
 name_label = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -102,7 +101,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-layout_mode = 2
 offset_right = 800.0
 offset_bottom = 262.0
 grow_horizontal = 2
@@ -113,19 +111,16 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
-layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 784.0
 offset_bottom = 246.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 768.0
 offset_bottom = 230.0
 
 [node name="TrainContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 196.0
 offset_bottom = 166.0
 size_flags_vertical = 0
@@ -136,7 +131,6 @@ theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer"]
 custom_minimum_size = Vector2(164, 0)
-layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 180.0
@@ -145,7 +139,6 @@ size_flags_vertical = 0
 theme_override_constants/separation = 13
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
-layout_mode = 2
 offset_left = 60.0
 offset_right = 103.0
 offset_bottom = 26.0
@@ -153,7 +146,6 @@ size_flags_horizontal = 4
 text = "Train"
 
 [node name="Strength" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 39.0
 offset_right = 164.0
 offset_bottom = 62.0
@@ -163,7 +155,6 @@ text = "Praying Mantis"
 text_overrun_behavior = 4
 
 [node name="Agility" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 75.0
 offset_right = 164.0
 offset_bottom = 98.0
@@ -171,7 +162,6 @@ focus_mode = 0
 text = "Zebra Zudo"
 
 [node name="Magic" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 111.0
 offset_right = 164.0
 offset_bottom = 134.0
@@ -180,7 +170,6 @@ text = "Satanic Panic
 "
 
 [node name="FoodContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 480.0
 offset_right = 768.0
 offset_bottom = 230.0
@@ -193,7 +182,6 @@ theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer"]
 custom_minimum_size = Vector2(256, 0)
-layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 272.0
@@ -201,28 +189,24 @@ offset_bottom = 214.0
 theme_override_constants/separation = 9
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 256.0
 offset_bottom = 26.0
 text = "Henry"
 horizontal_alignment = 1
 
 [node name="HealthContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 256.0
 offset_bottom = 61.0
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/HealthContainer"]
 custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
 offset_right = 80.0
 offset_bottom = 26.0
 size_flags_horizontal = 0
 text = "Health"
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/HealthContainer"]
-layout_mode = 2
 offset_left = 84.0
 offset_right = 256.0
 offset_bottom = 26.0
@@ -238,21 +222,18 @@ script = ExtResource("3_673eb")
 stat = "health"
 
 [node name="StrengthContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 70.0
 offset_right = 256.0
 offset_bottom = 96.0
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/StrengthContainer"]
 custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
 offset_right = 80.0
 offset_bottom = 26.0
 size_flags_horizontal = 0
 text = "Strength"
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/StrengthContainer"]
-layout_mode = 2
 offset_left = 84.0
 offset_right = 256.0
 offset_bottom = 26.0
@@ -267,21 +248,18 @@ script = ExtResource("3_673eb")
 stat = "strength"
 
 [node name="AgilityContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 105.0
 offset_right = 256.0
 offset_bottom = 131.0
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/AgilityContainer"]
 custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
 offset_right = 80.0
 offset_bottom = 26.0
 size_flags_horizontal = 0
 text = "Agility"
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/AgilityContainer"]
-layout_mode = 2
 offset_left = 84.0
 offset_right = 256.0
 offset_bottom = 26.0
@@ -296,21 +274,18 @@ script = ExtResource("3_673eb")
 stat = "agility"
 
 [node name="MagicContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 140.0
 offset_right = 256.0
 offset_bottom = 166.0
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/MagicContainer"]
 custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
 offset_right = 80.0
 offset_bottom = 26.0
 size_flags_horizontal = 0
 text = "Magic"
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/MagicContainer"]
-layout_mode = 2
 offset_left = 84.0
 offset_right = 256.0
 offset_bottom = 26.0
@@ -325,7 +300,6 @@ script = ExtResource("3_673eb")
 stat = "magic"
 
 [node name="Buy Energy" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 175.0
 offset_right = 256.0
 offset_bottom = 198.0
@@ -333,7 +307,6 @@ focus_mode = 0
 text = "Buy Food (1 coin)"
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
 offset_top = 566.0
 offset_right = 800.0
 offset_bottom = 600.0
@@ -341,14 +314,12 @@ size_flags_vertical = 10
 theme_override_styles/panel = SubResource("StyleBoxFlat_7cq76")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
-layout_mode = 2
 offset_left = 6.0
 offset_top = 4.0
 offset_right = 794.0
 offset_bottom = 30.0
 
 [node name="CoinLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 61.0
 offset_bottom = 26.0
 size_flags_horizontal = 2
@@ -359,7 +330,6 @@ script = ExtResource("4_b1dd7")
 
 [node name="NewsLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 2
 offset_left = 117.0
 offset_right = 788.0
 offset_bottom = 26.0

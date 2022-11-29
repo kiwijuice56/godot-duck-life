@@ -50,6 +50,11 @@ _global_script_classes=[{
 "path": "res://main/home/energy_deco/energy_deco.gd"
 }, {
 "base": "Node",
+"class": &"Fighter",
+"language": &"GDScript",
+"path": "res://main/conquest/fighter/fighter.gd"
+}, {
+"base": "Node",
 "class": &"Home",
 "language": &"GDScript",
 "path": "res://main/home/home.gd"
@@ -63,6 +68,11 @@ _global_script_classes=[{
 "class": &"HomeUI",
 "language": &"GDScript",
 "path": "res://main/ui/home/home_ui.gd"
+}, {
+"base": "State",
+"class": &"InputWalkState",
+"language": &"GDScript",
+"path": "res://main/conquest/fighter/player/input_walk_state.gd"
 }, {
 "base": "Node",
 "class": &"Main",
@@ -139,6 +149,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://main/mini_game/satanic_panic/screen_shake_camera.gd"
 }, {
+"base": "Node",
+"class": &"State",
+"language": &"GDScript",
+"path": "res://main/conquest/fighter/state_machine/state.gd"
+}, {
+"base": "Node",
+"class": &"StateMachine",
+"language": &"GDScript",
+"path": "res://main/conquest/fighter/state_machine/state_machine.gd"
+}, {
 "base": "Control",
 "class": &"TitleUI",
 "language": &"GDScript",
@@ -163,9 +183,11 @@ _global_script_class_icons={
 "DuckStatProgressBar": "",
 "EnemyBullet": "",
 "EnergyDeco": "",
+"Fighter": "",
 "Home": "",
 "HomeDuck": "",
 "HomeUI": "",
+"InputWalkState": "",
 "Main": "",
 "MiniGame": "",
 "MiniGameUI": "",
@@ -181,6 +203,8 @@ _global_script_class_icons={
 "SatanicPanicTriangularEnemy": "",
 "SatanicPanicUI": "",
 "ScreenShakeCamera": "",
+"State": "",
+"StateMachine": "",
 "TitleUI": "",
 "VersionLabel": "",
 "VignetteScreenShakeCamera": ""
@@ -257,6 +281,9 @@ shoot={
 2d_physics/layer_5="enemy_bullet"
 2d_physics/layer_6="player_bullet"
 2d_physics/layer_7="coin"
+2d_physics/layer_8="fighter_body"
+2d_physics/layer_9="fighter_hitbox"
+2d_physics/layer_10="conquest_border"
 
 [rendering]
 
