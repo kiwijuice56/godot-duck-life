@@ -14,8 +14,8 @@ func physics_step(delta: float) -> void:
 		return
 	active_state.physics_step(delta)
 
-func transition_to(new_state_name: String) -> void:
+func transition_to(new_state_name: String, info := {}) -> void:
 	var new_state: State = get_node(new_state_name)
 	active_state.exit()
 	active_state = new_state
-	active_state.enter()
+	active_state.enter(info)

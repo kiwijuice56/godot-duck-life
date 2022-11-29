@@ -9,10 +9,25 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Area2D",
+"class": &"Attack",
+"language": &"GDScript",
+"path": "res://main/conquest/attack/attack.gd"
+}, {
+"base": "State",
+"class": &"AttackState",
+"language": &"GDScript",
+"path": "res://main/conquest/fighter/state_machine/attack_state.gd"
+}, {
 "base": "Sprite2D",
 "class": &"Block",
 "language": &"GDScript",
 "path": "res://main/mini_game/praying_mantis/block/block.gd"
+}, {
+"base": "State",
+"class": &"ChaseState",
+"language": &"GDScript",
+"path": "res://main/conquest/fighter/state_machine/chase_state.gd"
 }, {
 "base": "Area2D",
 "class": &"Coin",
@@ -70,9 +85,9 @@ _global_script_classes=[{
 "path": "res://main/ui/home/home_ui.gd"
 }, {
 "base": "State",
-"class": &"InputWalkState",
+"class": &"InputPatrolState",
 "language": &"GDScript",
-"path": "res://main/conquest/fighter/player/input_walk_state.gd"
+"path": "res://main/conquest/fighter/player/input_patrol_state.gd"
 }, {
 "base": "Node",
 "class": &"Main",
@@ -93,6 +108,11 @@ _global_script_classes=[{
 "class": &"NewsLabel",
 "language": &"GDScript",
 "path": "res://main/ui/home/news_label.gd"
+}, {
+"base": "State",
+"class": &"PatrolState",
+"language": &"GDScript",
+"path": "res://main/conquest/fighter/state_machine/patrol_state.gd"
 }, {
 "base": "Area2D",
 "class": &"PlayerBullet",
@@ -175,7 +195,10 @@ _global_script_classes=[{
 "path": "res://main/mini_game/praying_mantis/vignette_screen_shake_camera.gd"
 }]
 _global_script_class_icons={
+"Attack": "",
+"AttackState": "",
 "Block": "",
+"ChaseState": "",
 "Coin": "",
 "CoinCollector": "",
 "CoinLabel": "",
@@ -187,11 +210,12 @@ _global_script_class_icons={
 "Home": "",
 "HomeDuck": "",
 "HomeUI": "",
-"InputWalkState": "",
+"InputPatrolState": "",
 "Main": "",
 "MiniGame": "",
 "MiniGameUI": "",
 "NewsLabel": "",
+"PatrolState": "",
 "PlayerBullet": "",
 "PrayingMantis": "",
 "PrayingMantisUI": "",
@@ -284,6 +308,7 @@ shoot={
 2d_physics/layer_8="fighter_body"
 2d_physics/layer_9="fighter_hitbox"
 2d_physics/layer_10="conquest_border"
+2d_physics/layer_11="fighter_attack"
 
 [rendering]
 

@@ -1,14 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv5ydrv36ia2k"]
+[gd_scene load_steps=12 format=3 uid="uid://bdn5x6ek68wg8"]
 
 [ext_resource type="Script" path="res://main/conquest/fighter/fighter.gd" id="1_lcg27"]
 [ext_resource type="Texture2D" uid="uid://b3w6ig6fwsjjo" path="res://main/home/duck/godot.png" id="2_bh8b8"]
 [ext_resource type="Script" path="res://main/conquest/fighter/state_machine/state_machine.gd" id="2_bh8jd"]
+[ext_resource type="Script" path="res://main/conquest/fighter/state_machine/attack_state.gd" id="4_3jkxq"]
+[ext_resource type="Script" path="res://main/conquest/fighter/state_machine/patrol_state.gd" id="5_111k2"]
+[ext_resource type="Script" path="res://main/conquest/fighter/state_machine/chase_state.gd" id="6_e6vnx"]
+
+[sub_resource type="Animation" id="Animation_r2c37"]
+resource_name = "shove"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1000, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h2xml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4tpf"]
+_data = {
+"RESET": SubResource("Animation_h2xml"),
+"shove": SubResource("Animation_r2c37")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2mq3"]
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2hipp"]
-radius = 18.0
+radius = 128.0
 
 [node name="Fighter" type="CharacterBody2D"]
 collision_layer = 128
@@ -20,6 +60,9 @@ scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_bh8b8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m4tpf")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_i2mq3")
@@ -31,5 +74,24 @@ collision_mask = 768
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_2hipp")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="Vision" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+shape = SubResource("CircleShape2D_2hipp")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("active_state")]
 script = ExtResource("2_bh8jd")
+active_state = NodePath("PatrolState")
+
+[node name="AttackState" type="Node" parent="StateMachine"]
+script = ExtResource("4_3jkxq")
+
+[node name="PatrolState" type="Node" parent="StateMachine"]
+script = ExtResource("5_111k2")
+
+[node name="ChaseState" type="Node" parent="StateMachine"]
+script = ExtResource("6_e6vnx")
+
+[node name="Timer" type="Timer" parent="."]

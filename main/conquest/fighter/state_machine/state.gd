@@ -3,7 +3,7 @@ extends Node
 
 var fighter: Fighter
 
-func enter() -> void:
+func enter(info: Dictionary) -> void:
 	pass
 
 func exit() -> void:

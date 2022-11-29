@@ -1,4 +1,4 @@
-class_name InputWalkState
+class_name InputPatrolState
 extends State
 
 var dir := Vector2()

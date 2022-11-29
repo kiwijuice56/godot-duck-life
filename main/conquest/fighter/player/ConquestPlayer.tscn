@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu6iqwxkblvar"]
+
+[ext_resource type="PackedScene" uid="uid://bdn5x6ek68wg8" path="res://main/conquest/fighter/Fighter.tscn" id="1_8xana"]
+[ext_resource type="Script" path="res://main/conquest/fighter/player/input_patrol_state.gd" id="2_m5wr2"]
+
+[node name="ConquestPlayer" instance=ExtResource("1_8xana")]
+
+[node name="Hitbox" parent="." index="3"]
+collision_layer = 260
+
+[node name="CollisionShape2D" parent="Vision" index="0"]
+disabled = true
+
+[node name="PatrolState" parent="StateMachine" index="1"]
+script = ExtResource("2_m5wr2")
