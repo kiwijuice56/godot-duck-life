@@ -16,6 +16,7 @@ func _ready() -> void:
 	ui.energy_bought.connect(_on_energy_bought)
 	ui.satanic_panic_started.connect(_on_satanic_panic_started)
 	ui.praying_mantis_started.connect(_on_praying_mantis_started)
+	ui.conquest_started.connect(_on_conquest_started)
 	duck = $Duck
 
 func _on_energy_bought() -> void:

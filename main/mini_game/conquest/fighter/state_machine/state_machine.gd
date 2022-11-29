@@ -3,7 +3,7 @@ extends Node
 
 @onready var fighter: Fighter = get_parent()
 @export var active_state: State
-@export var is_processing := true
+@export var is_running := true
 
 func _ready() -> void:
 	for child in get_children():
@@ -11,7 +11,7 @@ func _ready() -> void:
 	active_state.enter({})
 
 func physics_step(delta: float) -> void:
-	if not is_processing:
+	if not is_running:
 		return
 	active_state.physics_step(delta)
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfx4i4xvptgrw"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://bdn5x6ek68wg8" path="res://main/conquest/fighter/Fighter.tscn" id="1_awaw5"]
+[ext_resource type="PackedScene" uid="uid://bdn5x6ek68wg8" path="res://main/mini_game/conquest/fighter/Fighter.tscn" id="1_awaw5"]
 [ext_resource type="Texture2D" uid="uid://d0nx35i7hcsx" path="res://main/mini_game/satanic_panic/enemy/triangular_enemy/triangular_enemy.png" id="2_cuavv"]
 
 [node name="Brawler" instance=ExtResource("1_awaw5")]

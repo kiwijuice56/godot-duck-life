@@ -77,7 +77,7 @@ content_margin_right = 6.0
 content_margin_bottom = 4.0
 bg_color = Color(0.4, 0.415686, 0.521569, 1)
 
-[node name="HomeUI" type="Control" node_paths=PackedStringArray("energy_buy_button", "satanic_panic_button", "praying_mantis_button", "name_label")]
+[node name="HomeUI" type="Control" node_paths=PackedStringArray("energy_buy_button", "satanic_panic_button", "praying_mantis_button", "conquest_button", "name_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,6 +91,7 @@ script = ExtResource("2_xk2mw")
 energy_buy_button = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/Buy Energy")
 satanic_panic_button = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer/Magic")
 praying_mantis_button = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TrainContainer/VBoxContainer/Strength")
+conquest_button = NodePath("VBoxContainer/ConquestButton")
 name_label = NodePath("VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/FoodContainer/VBoxContainer/Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -315,6 +316,7 @@ offset_right = 800.0
 offset_bottom = 558.0
 size_flags_horizontal = 8
 size_flags_vertical = 10
+focus_mode = 0
 text = "Conquest!"
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]

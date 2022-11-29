@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://uhiyygang2p4"]
+[gd_scene load_steps=8 format=3 uid="uid://bvst7s7bxjgrv"]
 
-[ext_resource type="PackedScene" uid="uid://bu6iqwxkblvar" path="res://main/conquest/fighter/player/ConquestPlayer.tscn" id="1_2ijja"]
-[ext_resource type="Script" path="res://main/conquest/conquest.gd" id="1_5m7ej"]
-[ext_resource type="PackedScene" uid="uid://cfx4i4xvptgrw" path="res://main/conquest/fighter/brawler/Brawler.tscn" id="2_mp4c5"]
+[ext_resource type="PackedScene" uid="uid://bx8rpcpvn6403" path="res://main/mini_game/conquest/fighter/player/ConquestPlayer.tscn" id="1_2ijja"]
+[ext_resource type="Script" path="res://main/mini_game/conquest/conquest.gd" id="1_5m7ej"]
+[ext_resource type="PackedScene" path="res://main/mini_game/conquest/fighter/brawler/Brawler.tscn" id="2_mp4c5"]
 [ext_resource type="Texture2D" uid="uid://conu5ye0k6asp" path="res://main/home/square.png" id="3_td4c4"]
-[ext_resource type="PackedScene" uid="uid://b3gmy0v4hdwl1" path="res://main/ui/mini_game/MiniGameUI.tscn" id="5_bv4gk"]
+[ext_resource type="PackedScene" uid="uid://b8i8d7dsgsad0" path="res://main/ui/mini_game/conquest/ConquestUI.tscn" id="5_dfbd1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eq2r"]
 size = Vector2(3500, 64)
@@ -12,11 +12,11 @@ size = Vector2(3500, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0bb"]
 size = Vector2(64, 300)
 
-[node name="Conquest" type="Node2D"]
+[node name="Conquest" type="Node2D" node_paths=PackedStringArray("UI")]
 script = ExtResource("1_5m7ej")
+UI = NodePath("UI")
 
 [node name="ConquestPlayer" parent="." instance=ExtResource("1_2ijja")]
-position = Vector2(346, 184)
 scale = Vector2(1, 1)
 magic = 64
 
@@ -26,6 +26,7 @@ scale = Vector2(1, 1)
 fireball = null
 
 [node name="Top" type="StaticBody2D" parent="."]
+position = Vector2(1483, -160)
 collision_layer = 512
 collision_mask = 128
 
@@ -37,6 +38,7 @@ scale = Vector2(256, 1)
 texture = ExtResource("3_td4c4")
 
 [node name="Left" type="StaticBody2D" parent="."]
+position = Vector2(1483, -160)
 collision_layer = 512
 collision_mask = 0
 
@@ -45,7 +47,7 @@ position = Vector2(-1694, 176)
 shape = SubResource("RectangleShape2D_hi0bb")
 
 [node name="Right" type="StaticBody2D" parent="."]
-position = Vector2(3400, 0)
+position = Vector2(4883, -160)
 collision_layer = 512
 collision_mask = 0
 
@@ -54,7 +56,7 @@ position = Vector2(-1694, 176)
 shape = SubResource("RectangleShape2D_hi0bb")
 
 [node name="Bottom" type="StaticBody2D" parent="."]
-position = Vector2(0, 345)
+position = Vector2(1483, 185)
 collision_layer = 512
 collision_mask = 0
 
@@ -65,4 +67,4 @@ shape = SubResource("RectangleShape2D_3eq2r")
 scale = Vector2(256, 1)
 texture = ExtResource("3_td4c4")
 
-[node name="UI" parent="." instance=ExtResource("5_bv4gk")]
+[node name="UI" parent="." instance=ExtResource("5_dfbd1")]

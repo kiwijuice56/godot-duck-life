@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch4og608kktuw"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="PackedScene" uid="uid://cge2ay8i7pmiw" path="res://main/conquest/attack/Attack.tscn" id="1_r8yl6"]
-[ext_resource type="Script" path="res://main/conquest/attack/fireball/fireball.gd" id="2_aoc3r"]
+[ext_resource type="PackedScene" uid="uid://cge2ay8i7pmiw" path="res://main/mini_game/conquest/attack/Attack.tscn" id="1_r8yl6"]
+[ext_resource type="Script" path="res://main/mini_game/conquest/attack/fireball/fireball.gd" id="2_aoc3r"]
 [ext_resource type="Texture2D" uid="uid://o8cfwft1tuwl" path="res://main/home/energy_deco/circle.png" id="2_yhmeg"]
 
 [sub_resource type="Gradient" id="Gradient_6ayku"]
