@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd60fw384ed8q"]
+
+[ext_resource type="PackedScene" uid="uid://1lgn3ui5yi4q" path="res://main/mini_game/conquest/fighter/Fighter.tscn" id="1_0fcn2"]
+[ext_resource type="Texture2D" uid="uid://egdcew6juqrl" path="res://main/mini_game/satanic_panic/enemy/radial_enemy/radial_enemy.png" id="2_dxsb4"]
+[ext_resource type="Script" path="res://main/mini_game/conquest/fighter/mage/mage_chase_state.gd" id="2_l6khx"]
+[ext_resource type="PackedScene" uid="uid://c8ppke0hhe0jr" path="res://main/mini_game/conquest/attack/fireball/EnemyFireBall.tscn" id="2_yy5t5"]
+
+[node name="Mage" instance=ExtResource("1_0fcn2")]
+fireball = ExtResource("2_yy5t5")
+
+[node name="Sprite2D" parent="Directional" index="1"]
+texture = ExtResource("2_dxsb4")
+
+[node name="Hitbox" parent="." index="4"]
+collision_mask = 32
+
+[node name="ChaseState" parent="StateMachine" index="2"]
+script = ExtResource("2_l6khx")
+accuracy = 32
+pursuit_distance = 128
+attack_distance = 48

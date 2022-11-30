@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bde14yyvbp0f"]
+
+[ext_resource type="PackedScene" uid="uid://1lgn3ui5yi4q" path="res://main/mini_game/conquest/fighter/Fighter.tscn" id="1_awaw5"]
+[ext_resource type="Texture2D" uid="uid://bggw6mp8yntq6" path="res://main/mini_game/satanic_panic/enemy/enemy.png" id="2_2rx47"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d17cs"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03rxg"]
+radius = 256.0
+
+[node name="SuperBrawler" instance=ExtResource("1_awaw5")]
+health = 255
+strength = 180
+agility = 3
+magic = 1
+
+[node name="MainAttack" parent="Directional" index="0"]
+scale = Vector2(2, 2)
+collision_layer = 16
+
+[node name="Sprite2D" parent="Directional" index="1"]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("2_2rx47")
+
+[node name="Hitbox" parent="." index="4"]
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_d17cs")
+
+[node name="CollisionShape2D" parent="Vision" index="0"]
+shape = SubResource("CircleShape2D_03rxg")
+
+[node name="ChaseState" parent="StateMachine" index="2"]
+chase_speed = 200
+bored_distance = 499

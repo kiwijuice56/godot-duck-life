@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ppke0hhe0jr"]
+
+[ext_resource type="PackedScene" uid="uid://bdvrq0kkql0h5" path="res://main/mini_game/conquest/attack/fireball/FireBall.tscn" id="1_ksq1d"]
+
+[node name="EnemyFireBall" instance=ExtResource("1_ksq1d")]
+collision_layer = 528

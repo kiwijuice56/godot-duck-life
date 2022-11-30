@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp164x3o4yq2r"]
+
+[ext_resource type="PackedScene" uid="uid://1lgn3ui5yi4q" path="res://main/mini_game/conquest/fighter/Fighter.tscn" id="1_awaw5"]
+[ext_resource type="Texture2D" uid="uid://d0nx35i7hcsx" path="res://main/mini_game/satanic_panic/enemy/triangular_enemy/triangular_enemy.png" id="2_cuavv"]
+
+[node name="SuperBrawler" instance=ExtResource("1_awaw5")]
+health = 36
+strength = 20
+agility = 3
+magic = 1
+
+[node name="MainAttack" parent="Directional" index="0"]
+collision_layer = 16
+
+[node name="Sprite2D" parent="Directional" index="1"]
+scale = Vector2(0.026, 0.026)
+texture = ExtResource("2_cuavv")
+
+[node name="Hitbox" parent="." index="4"]
+collision_mask = 32
+
+[node name="ChaseState" parent="StateMachine" index="2"]
+chase_speed = 120

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://mawpvh60y6th"]
+
+[ext_resource type="PackedScene" uid="uid://1lgn3ui5yi4q" path="res://main/mini_game/conquest/fighter/Fighter.tscn" id="1_0fcn2"]
+[ext_resource type="Texture2D" uid="uid://egdcew6juqrl" path="res://main/mini_game/satanic_panic/enemy/radial_enemy/radial_enemy.png" id="2_dxsb4"]
+[ext_resource type="Script" path="res://main/mini_game/conquest/fighter/mage/mage_chase_state.gd" id="2_l6khx"]
+[ext_resource type="PackedScene" uid="uid://c8ppke0hhe0jr" path="res://main/mini_game/conquest/attack/fireball/EnemyFireBall.tscn" id="2_yy5t5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_olmre"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hxhrm"]
+radius = 148.0
+
+[node name="SuperSuperMage" instance=ExtResource("1_0fcn2")]
+health = 100
+magic = 64
+fireball = ExtResource("2_yy5t5")
+
+[node name="Sprite2D" parent="Directional" index="1"]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_dxsb4")
+
+[node name="Hitbox" parent="." index="4"]
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_olmre")
+
+[node name="CollisionShape2D" parent="Vision" index="0"]
+shape = SubResource("CircleShape2D_hxhrm")
+
+[node name="ChaseState" parent="StateMachine" index="2"]
+script = ExtResource("2_l6khx")
+accuracy = 48
+pursuit_distance = 128
+chase_speed = 120
+attack_distance = 48

@@ -1,18 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx8rpcpvn6403"]
+[gd_scene load_steps=6 format=3 uid="uid://bx8rpcpvn6403"]
 
-[ext_resource type="PackedScene" path="res://main/mini_game/conquest/fighter/Fighter.tscn" id="1_8xana"]
+[ext_resource type="PackedScene" uid="uid://1lgn3ui5yi4q" path="res://main/mini_game/conquest/fighter/Fighter.tscn" id="1_8xana"]
 [ext_resource type="Script" path="res://main/mini_game/conquest/fighter/player/conquest_player.gd" id="2_c482d"]
 [ext_resource type="Script" path="res://main/mini_game/conquest/fighter/player/input_patrol_state.gd" id="2_m5wr2"]
+[ext_resource type="Material" uid="uid://dj5syt6gudkpk" path="res://main/home/duck/player_material.tres" id="3_22j60"]
+[ext_resource type="Script" path="res://main/mini_game/satanic_panic/screen_shake_camera.gd" id="5_tida2"]
 
 [node name="ConquestPlayer" instance=ExtResource("1_8xana")]
 script = ExtResource("2_c482d")
-health = null
-strength = null
-agility = null
-magic = null
 
 [node name="MainAttack" parent="Directional" index="0"]
 collision_layer = 32
+
+[node name="Sprite2D" parent="Directional" index="1"]
+material = ExtResource("3_22j60")
 
 [node name="AnimationPlayer" parent="." index="2"]
 playback_speed = 5.0
@@ -24,11 +25,15 @@ collision_mask = 16
 [node name="CollisionShape2D" parent="Vision" index="0"]
 disabled = true
 
-[node name="StateMachine" parent="." index="6"]
+[node name="StateMachine" parent="." index="6" node_paths=PackedStringArray("active_state")]
+active_state = NodePath("PatrolState")
 is_running = false
 
 [node name="PatrolState" parent="StateMachine" index="1"]
 script = ExtResource("2_m5wr2")
 
-[node name="Camera2D" type="Camera2D" parent="." index="8"]
+[node name="Camera2D" type="Camera2D" parent="." index="10"]
 current = true
+limit_top = -300
+limit_bottom = 300
+script = ExtResource("5_tida2")

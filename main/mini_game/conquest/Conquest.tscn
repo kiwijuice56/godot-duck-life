@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvst7s7bxjgrv"]
+[gd_scene load_steps=12 format=3 uid="uid://bvst7s7bxjgrv"]
 
 [ext_resource type="PackedScene" uid="uid://bx8rpcpvn6403" path="res://main/mini_game/conquest/fighter/player/ConquestPlayer.tscn" id="1_2ijja"]
 [ext_resource type="Script" path="res://main/mini_game/conquest/conquest.gd" id="1_5m7ej"]
-[ext_resource type="PackedScene" path="res://main/mini_game/conquest/fighter/brawler/Brawler.tscn" id="2_mp4c5"]
-[ext_resource type="Texture2D" uid="uid://conu5ye0k6asp" path="res://main/home/square.png" id="3_td4c4"]
+[ext_resource type="PackedScene" uid="uid://7l783yrx1hxy" path="res://main/mini_game/conquest/fighter/brawler/Brawler.tscn" id="2_mp4c5"]
+[ext_resource type="Texture2D" uid="uid://c1i6p3qgvgqcg" path="res://main/mini_game/satanic_panic/background.png" id="4_1f8qa"]
+[ext_resource type="PackedScene" uid="uid://dd60fw384ed8q" path="res://main/mini_game/conquest/fighter/mage/Mage.tscn" id="4_r8xlc"]
 [ext_resource type="PackedScene" uid="uid://b8i8d7dsgsad0" path="res://main/ui/mini_game/conquest/ConquestUI.tscn" id="5_dfbd1"]
+[ext_resource type="PackedScene" uid="uid://b428ihvkqgstp" path="res://main/mini_game/conquest/fighter/mage/SuperMage.tscn" id="7_1hw8f"]
+[ext_resource type="PackedScene" uid="uid://cp164x3o4yq2r" path="res://main/mini_game/conquest/fighter/brawler/SuperBrawler.tscn" id="8_euoi3"]
+[ext_resource type="PackedScene" uid="uid://bde14yyvbp0f" path="res://main/mini_game/conquest/fighter/brawler/SuperSuperBrawler.tscn" id="9_v2q0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eq2r"]
 size = Vector2(3500, 64)
@@ -16,55 +20,136 @@ size = Vector2(64, 300)
 script = ExtResource("1_5m7ej")
 UI = NodePath("UI")
 
-[node name="ConquestPlayer" parent="." instance=ExtResource("1_2ijja")]
-scale = Vector2(1, 1)
-magic = 64
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-57, 0)
 
-[node name="Brawler" parent="." instance=ExtResource("2_mp4c5")]
-position = Vector2(674, 152)
-scale = Vector2(1, 1)
-fireball = null
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture_repeat = 2
+texture = ExtResource("4_1f8qa")
+region_enabled = true
+region_rect = Rect2(3000, 0, 12000, 8000)
 
-[node name="Top" type="StaticBody2D" parent="."]
+[node name="Top" type="StaticBody2D" parent="Node2D"]
 position = Vector2(1483, -160)
 collision_layer = 512
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Top"]
 shape = SubResource("RectangleShape2D_3eq2r")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Top"]
-scale = Vector2(256, 1)
-texture = ExtResource("3_td4c4")
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Top"]
+modulate = Color(0.615686, 0.568627, 0.670588, 1)
+texture_repeat = 2
+position = Vector2(27, -469)
+texture = ExtResource("4_1f8qa")
+region_enabled = true
+region_rect = Rect2(-10000, -1000, 10000, 1000)
 
-[node name="Left" type="StaticBody2D" parent="."]
-position = Vector2(1483, -160)
-collision_layer = 512
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
-position = Vector2(-1694, 176)
-shape = SubResource("RectangleShape2D_hi0bb")
-
-[node name="Right" type="StaticBody2D" parent="."]
-position = Vector2(4883, -160)
-collision_layer = 512
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
-position = Vector2(-1694, 176)
-shape = SubResource("RectangleShape2D_hi0bb")
-
-[node name="Bottom" type="StaticBody2D" parent="."]
+[node name="Bottom" type="StaticBody2D" parent="Node2D"]
 position = Vector2(1483, 185)
 collision_layer = 512
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bottom"]
 shape = SubResource("RectangleShape2D_3eq2r")
 
-[node name="Sprite2D" type="Sprite2D" parent="Bottom"]
-scale = Vector2(256, 1)
-texture = ExtResource("3_td4c4")
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/Bottom"]
+modulate = Color(0.615686, 0.568627, 0.670588, 1)
+texture_repeat = 2
+position = Vector2(69, 473)
+texture = ExtResource("4_1f8qa")
+region_enabled = true
+region_rect = Rect2(-10000, -1000, 10000, 1000)
+
+[node name="Left" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1483, -160)
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Left"]
+position = Vector2(-1694, 176)
+shape = SubResource("RectangleShape2D_hi0bb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D/Left"]
+modulate = Color(1.2, 1.2, 1.2, 1)
+texture_repeat = 2
+position = Vector2(6679, 124)
+texture = ExtResource("4_1f8qa")
+region_enabled = true
+region_rect = Rect2(-10000, -1000, 10000, 1000)
+
+[node name="Right" type="StaticBody2D" parent="Node2D"]
+position = Vector2(4883, -160)
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Right"]
+position = Vector2(-1694, 176)
+shape = SubResource("RectangleShape2D_hi0bb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/Right"]
+modulate = Color(1.2, 1.2, 1.2, 1)
+texture_repeat = 2
+position = Vector2(-10062, 232)
+texture = ExtResource("4_1f8qa")
+region_enabled = true
+region_rect = Rect2(-10000, -1000, 10000, 1000)
+
+[node name="ConquestPlayer" parent="." instance=ExtResource("1_2ijja")]
+magic = 0
+
+[node name="Mage" parent="." instance=ExtResource("4_r8xlc")]
+position = Vector2(472, -73)
+
+[node name="Mage2" parent="." instance=ExtResource("4_r8xlc")]
+position = Vector2(632, 41)
+
+[node name="Brawler" parent="." instance=ExtResource("2_mp4c5")]
+position = Vector2(340, 74)
+
+[node name="Brawler2" parent="." instance=ExtResource("2_mp4c5")]
+position = Vector2(521, 95)
 
 [node name="UI" parent="." instance=ExtResource("5_dfbd1")]
+
+[node name="Mage3" parent="." instance=ExtResource("7_1hw8f")]
+position = Vector2(915, 13)
+
+[node name="SuperBrawler" parent="." instance=ExtResource("8_euoi3")]
+position = Vector2(1174, 87)
+
+[node name="SuperBrawler2" parent="." instance=ExtResource("8_euoi3")]
+position = Vector2(1304, 5)
+
+[node name="Mage4" parent="." instance=ExtResource("7_1hw8f")]
+position = Vector2(1423, -70)
+
+[node name="Mage5" parent="." instance=ExtResource("7_1hw8f")]
+position = Vector2(1581, 82)
+
+[node name="SuperBrawler3" parent="." instance=ExtResource("9_v2q0x")]
+position = Vector2(2969, 75)
+
+[node name="SuperBrawler4" parent="." instance=ExtResource("9_v2q0x")]
+position = Vector2(2733, -57)
+
+[node name="SuperBrawler5" parent="." instance=ExtResource("9_v2q0x")]
+position = Vector2(2551, 85)
+
+[node name="Mage6" parent="." instance=ExtResource("7_1hw8f")]
+position = Vector2(2753, 85)
+
+[node name="Mage7" parent="." instance=ExtResource("7_1hw8f")]
+position = Vector2(2361, 97)
+
+[node name="Mage8" parent="." instance=ExtResource("7_1hw8f")]
+position = Vector2(2365, 27)
+
+[node name="Mage9" parent="." instance=ExtResource("7_1hw8f")]
+position = Vector2(2367, -53)
+
+[node name="Mage10" parent="." instance=ExtResource("7_1hw8f")]
+position = Vector2(2947, -47)
+
+[node name="SuperBrawler6" parent="." instance=ExtResource("9_v2q0x")]
+position = Vector2(1916, 14)

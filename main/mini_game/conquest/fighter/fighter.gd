@@ -18,6 +18,7 @@ var max_health: int
 
 signal vision_entered(area)
 signal spawn_magic
+signal died
 
 func _ready() -> void:
 	max_health = health
@@ -41,11 +42,27 @@ func _physics_process(delta: float) -> void:
 	state_machine.physics_step(delta)
 
 func death() -> void:
+	$AnimationPlayer.play("die")
+	died.emit()
+	$StateMachine.is_running = false
+	await $AnimationPlayer.animation_finished
 	queue_free()
 
 func attack(target: Fighter, info := {}) -> void:
-	# this can be anything, placeholder for other fighters
-	$AnimationPlayer.play("shove")
-	await $AnimationPlayer.animation_finished
-	$Delay.start(1)
-	await $Delay.timeout
+	if "attack" in info and info.attack == "Fireball":
+		$AnimationPlayer.play("spell_cast")
+		await spawn_magic
+		var new_fire := fireball.instantiate()
+		new_fire.power = magic
+		get_tree().get_root().add_child(new_fire)
+		new_fire.global_position = global_position
+		new_fire.dir.x = $Directional.scale.x 
+		await $AnimationPlayer.animation_finished
+		$Delay.start(1.5)
+		await $Delay.timeout
+	else:
+		$Directional/MainAttack.damage = int(strength / 7)
+		$AnimationPlayer.play("shove")
+		await $AnimationPlayer.animation_finished
+		$Delay.start(1)
+		await $Delay.timeout

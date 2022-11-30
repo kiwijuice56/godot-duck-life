@@ -1,13 +1,11 @@
 class_name ConquestPlayer
 extends Fighter
 
-func death() -> void:
-	queue_free()
-
 func attack(target: Fighter, info := {}) -> void:
 	if not $Delay.is_stopped():
 		return
 	if info.attack == "Physical":
+		$Directional/MainAttack.damage = int(strength / 7)
 		$AnimationPlayer.play("shove")
 		await $AnimationPlayer.animation_finished
 		$Delay.start(0.2)
@@ -21,3 +19,9 @@ func attack(target: Fighter, info := {}) -> void:
 		new_fire.dir.x = $Directional.scale.x 
 		await $AnimationPlayer.animation_finished
 		$Delay.start(.3)
+
+func death() -> void:
+	$AnimationPlayer.play("die")
+	died.emit()
+	$StateMachine.is_running = false
+	await $AnimationPlayer.animation_finished
